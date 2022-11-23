@@ -24,4 +24,5 @@
     - [ ] Ablaufdokumentation
     - [ ] Soll-Ist-Vergleich mit Ursachen der Defizite
     - [ ] Realen Aufwand mit Zeitplan vergleichen und Reflektieren
-    - [ ] 
+    - [ ] Optimierungsvorschläge zur Projektrealisierung
+    - [ ] *Schutzbedarfanalyse mit Umsetzungsvarianten*
