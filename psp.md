@@ -1,3 +1,3 @@
 # Projektstrukturplan
-- [] Tolles dinng
-    - [] Tolleres ding
+- [ ] Tolles dinng
+    - [ ] Tolleres ding
