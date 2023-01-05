@@ -12,7 +12,7 @@
 
 ***Datenbank-Server*** öffentlich erreichbar: **Nein**, da dieser sensible Daten wie Anmeldedaten der Website-Nutzer enthält, welche geschützt werden müssen.
 
-***[Pi-Hole]*** öffentlich erreichbar: **Nein**, da Angreifer somit Einstellungen tätigen können. Hierbei kann es sich um Änderungen von gefilterten Webseiten handeln, um die internen Nutzer auf diese weiterzuleiten.
+***[Pi-Hole]*** öffentlich erreichbar: **Nein**, da Angreifer somit Einstellungen tätigen können. Hierbei kann es sich um Änderungen von gefilterten Webseiten handeln, um die internen Nutzer auf diese weiterzuleiten. Darüber hinaus werden DNS-Anfragen von der Software Pi-Hole gespeichert und dient somit als eigener DNS-Server, welcher ohne starke Absicherung nicht öffentlich erreichbar gemacht werden sollte.
 
 ***[Mailproxy für eingehende Mails]*** öffentlich erreichbar: **Ja**, da sonst keine Mails in das interne Netzwerk weitergeleitet werden können.
 
@@ -37,6 +37,7 @@ Für die Konfiguration des Web-Servers wird aus dem VMNet1 auf den Web-Server im
 Die Datenbankabfragen können vom Administrator über eine ssh-Verbindung auf dem Datenbankserver getätigt werden. 
 
 ***e)	[PI-Hole]*** 
-Das PI-Hole wird als Werbeblocker eingesetzt. Somit wird aus dem internen VMNet1 eine Anfrage über das VMNet8 ins Internet getätigt und somit eine Webseite aufgerufen. 
+Das PI-Hole wird als Werbeblocker eingesetzt. Somit wird aus dem internen VMNet1 eine Anfrage über das VMNet8 ins Internet getätigt und somit eine Webseite aufgerufen. Der Kommunikationsweg läuft wie bei einer gewöhnlichen DNS-Anfrage.
 
-***f)	[Mailkommunikation]***
+***f)	[Mailkommunikation]*** 
+Die Mailkommunikation erfolgt via Client-Server-Prinzip. Der Client schickt seine Mail an den SMTP-Server (entweder im eigenen Subnetz, oder über ein Gateway an ein anderes Subnetz). Der Server kommuniziert mit dem DNS-Server, um den Empfänger der Mail zu ermitteln. Anschließend leitet der DNS-Server die Informationen an den SMTP-Server zurück, welcher letztendlich die Nachricht an den Empfänger übermittelt. 
