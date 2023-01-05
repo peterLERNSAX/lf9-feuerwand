@@ -23,21 +23,20 @@
 ### Beschreiben Sie die Akteure und den jeweiligen Kommunikationsweg über die Zwischensysteme zu den IT-Endsystemen für folgenden Anwendungsfälle:
 <br></br>
 ***a)	Ticket erstellen und in DB speichern***
-Der Kunde greift aus seinem Netz auf den Web-Server zu, welcher aus dem Internet abrufbar ist und erstellt ein Ticket. Dabei läuft die Kommunikation über die IP-Adresse des Gateways des VMNet8 und anschließend über die des VMNet2. Die Daten des Tickets werden auf den Datenbank-Server übertragen und eingepflegt. Hierzu muss aus dem VMNet2 auf das VMNet1 zugegriffen werden. 
+Der Kunde greift vom Host-Rechner mit Hilfe eines Browsers auf den Web-Server zu, welcher aus dem Internet abrufbar ist und erstellt ein Ticket. Dabei läuft die Kommunikation über die IP-Adresse des Gateways des VMNet8, passiert die Firewall des IP-Fires, wird über das Gateway in das VMnet2. Die Daten des Tickets werden auf den Datenbank-Server übertragen und eingepflegt. Hierzu muss aus dem VMNet2 auf das VMNet1 über die Firewall des IPFires zugegriffen werden. 
 Der Kunde kann jedoch auch telefonisch Kontakt mit dem Kundenservice herstellen. Der Mitarbeiter erzeugt anschließend über das interne VMNet1 auf den Webserver im VMNet2 ein Ticket, welches wieder in die Datenbank, welche im VMNet1 liegt, eingepflegt wird.
 
-
 ***b)	Administration von FW, DNS- und DHCP-Server***
-Die Administration der Dienste erfolgt aus dem internen VMNet1-Netz durch einen Mitarbeiter mit administrativen Rechten. Ausgehend vom Administrator-Rechner kann eine RDP-Verbindung mit dem DNS- und DHCP-Server hergestellt im Netz werden. Die Firewall kann über die Weboberfläche des IPFire vom Administrator-Rechner aus konfiguriert werden. Hierzu werden die IP-Adresse und der Port :444 im Browser eingegeben.
+Die Administration der Dienste erfolgt aus dem internen VMNet1-Netz durch einen Mitarbeiter mit administrativen Rechten. Ausgehend vom Administrator-Rechner kann eine ssh-Verbindung mit dem DNS- und DHCP-Server im Netz hergestellt werden, sofern der Port 22 auf dem Server geöffnet ist. Die Firewall kann über die Weboberfläche des IPFire vom Administrator-Rechner aus konfiguriert werden. Hierzu werden die IP-Adresse und der Port :444 im Browser eingegeben.
 
 ***c)	Administration des Web-Servers***
-Für die Konfiguration des Web-Servers wird aus dem VMNet1 auf den Web-Server im VMNet2 zugegriffen. Hierzu wird durch einen Administrator eine ssh-Verbindung hergestellt.
+Für die Konfiguration des Web-Servers wird aus dem VMNet1 auf den Web-Server im VMNet2 über die Firewall des IPFires und des Web-Servers zugegriffen. Hierzu wird durch einen Administrator eine ssh-Verbindung hergestellt. Zu beachten ist, dass die Installationen eine Internetverbindung benötigen, welche über den Kinder- und Jugendschutzproxy läuft.
 
 ***d)	Datenbankabfragen zur Supportsteuerung (z.B. Anzahl offener Tickets)***
-Die Datenbankabfragen können vom Administrator über eine ssh-Verbindung auf dem Datenbankserver getätigt werden. 
+Die Datenbankabfragen können vom Administrator über eine ssh-Verbindung auf dem Datenbankserver getätigt werden, sofern der Port 22 des Datenbankservers geöffnet ist. 
 
 ***e)	[PI-Hole]*** 
-Das PI-Hole wird als Werbeblocker eingesetzt. Somit wird aus dem internen VMNet1 eine Anfrage über das VMNet8 ins Internet getätigt und somit eine Webseite aufgerufen. Der Kommunikationsweg läuft wie bei einer gewöhnlichen DNS-Anfrage.
+Das PI-Hole wird als Werbeblocker eingesetzt. Somit wird aus dem internen VMNet1 eine Anfrage über die Firewall des IPFire und das VMNet8 ins Internet getätigt und somit eine Webseite aufgerufen. Der Kommunikationsweg läuft wie bei einer gewöhnlichen DNS-Anfrage.
 
 ***f)	[Mailkommunikation]*** 
 Die Mailkommunikation erfolgt via Client-Server-Prinzip. Der Client schickt seine Mail an den SMTP-Server (entweder im eigenen Subnetz, oder über ein Gateway an ein anderes Subnetz). Der Server kommuniziert mit dem DNS-Server, um den Empfänger der Mail zu ermitteln. Anschließend leitet der DNS-Server die Informationen an den SMTP-Server zurück, welcher letztendlich die Nachricht an den Empfänger übermittelt. 
