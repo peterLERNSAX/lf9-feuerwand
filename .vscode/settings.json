@@ -1,0 +1,45 @@
+{
+    // Python example settings (for Python extension):
+    "python.defaultInterpreterPath": ".env/bin/python",
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "python.formatting.blackArgs": [
+        "--line-length=79",
+    ],
+    //"python.linting.enabled": true,
+    "python.linting.mypyEn@ext:ms-python.python79",
+    
+    // "python.linting.pylintCategorySeverity.warning": "Error",
+    // "python.linting.pylintCategorySeverity.convention": "Error",
+    // "python.linting.pylintCategorySeverity.refactor": "Error",
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.organizeImports": true
+        },
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+    },
+    "python.linting.pylintCategorySeverity.warning": "Error",
+    "python.linting.pylintCategorySeverity.convention": "Error",
+    "python.linting.pylintCategorySeverity.refactor": "Error",
+    "python.linting.pylintCategorySeverity.error": "Error",
+    "python.linting.pylintCategorySeverity.fatal": "Error",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--django-settings-module=webfrontend.webfrontend.settings",
+        "--load-plugins",
+        "pylint_django",
+        "--max-line-length=79",
+        "--enable=unused-import",
+    ],
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+        "--follow-imports=silent",
+        "--ignore-missing-imports",
+        "--show-column-numbers",
+        "--strict",
+        "--disallow-any-generics option"
+    ]
+}
