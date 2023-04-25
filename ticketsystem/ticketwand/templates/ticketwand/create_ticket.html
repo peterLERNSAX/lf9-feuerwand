@@ -1,0 +1,12 @@
+{% extends "ticketwand/index.html" %}
+{% load static %}
+{% block content %}
+
+<form action="{%url 'create-ticket-view'%}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Abschicken</button>
+</form>
+
+
+{%endblock%}
