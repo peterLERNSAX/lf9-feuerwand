@@ -35,7 +35,9 @@ class IndexView(View):
 
 - no
 
-####
+---
+
+#### LoginView
 
 ```python
 class LoginView(LoginView):
@@ -43,7 +45,21 @@ class LoginView(LoginView):
 
     template_name = "ticketwand/login.html"
     success_url = "{% url 'index-view'%}"
+```
 
+##### Special
+
+- `LoginView` from Django
+
+##### Templates
+
+- `login.html`
+
+---
+
+#### CreateTicketView
+
+```python
 class CreateTicketView(View):
     """Create Ticket"""
 
@@ -81,6 +97,9 @@ class CreateTicketView(View):
 ##### Tests
 
 - no
+
+---
+---
 
 ### Models
 
@@ -121,6 +140,9 @@ class Ticket(models.Model):
 
 - no
 
+---
+---
+
 ### Forms
 
 #### CreateTicketForm
@@ -143,4 +165,7 @@ class CreateTicketForm(forms.Form):
 ##### Tests
 
 - no
+
+---
+---
 
