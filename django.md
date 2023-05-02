@@ -5,9 +5,12 @@
 - [Models](#models)
 - [Forms](#forms)
 
-### Views
+---
+---
 
-#### Index
+## Views
+
+### Index
 
 ```python
 class IndexView(View):
@@ -22,22 +25,22 @@ class IndexView(View):
         return render(request,"ticketwand/index.html")  
 ```
 
-##### Methods
+#### Methods
 
 - `get` 
   -  - redners template
 
-##### Templates
+#### Templates
 
 - `index.html`
 
-##### Tests
+#### Tests
 
 - no
 
 ---
 
-#### LoginView
+### LoginView
 
 ```python
 class LoginView(LoginView):
@@ -47,17 +50,17 @@ class LoginView(LoginView):
     success_url = "{% url 'index-view'%}"
 ```
 
-##### Special
+#### Special
 
 - `LoginView` from Django
 
-##### Templates
+#### Templates
 
 - `login.html`
 
 ---
 
-#### CreateTicketView
+### CreateTicketView
 
 ```python
 class CreateTicketView(View):
@@ -80,7 +83,7 @@ class CreateTicketView(View):
         return redirect("create-ticket-view")
 ``` 
 
-##### Methods
+#### Methods
 
 - `get`
   - redners template with `CreateTicketForm`   
@@ -89,21 +92,21 @@ class CreateTicketView(View):
   - redirects if form is invalid
   - creates `Ticket` if form is valid
 
-##### Templates
+#### Templates
 
 - `ticket_created.html`
 - `create_ticket.html`
 
-##### Tests
+#### Tests
 
 - no
 
 ---
 ---
 
-### Models
+## Models
 
-#### Ticket
+### Ticket
 
 ```python
 class Ticket(models.Model):
@@ -125,7 +128,7 @@ class Ticket(models.Model):
     labels = models.TextField(null=True)
 ```
 
-##### Fields
+#### Fields
 
 - `name` -> ticket headline
 - `text` -> ticket text
@@ -136,16 +139,16 @@ class Ticket(models.Model):
 - `is_active`-> bool if ticket is active
 - `labels` -> textfield to be filled with labels
 
-##### Tests
+#### Tests
 
 - no
 
 ---
 ---
 
-### Forms
+## Forms
 
-#### CreateTicketForm
+### CreateTicketForm
 
 ```python
 class CreateTicketForm(forms.Form):
@@ -156,13 +159,13 @@ class CreateTicketForm(forms.Form):
     email = forms.EmailField(required=True)
 ```
 
-#### Fields
+### Fields
 
 - `name` -> ticket headline
 - `text` -> ticket text
 - `email` -> email of the user who created the ticket
 
-##### Tests
+#### Tests
 
 - no
 
