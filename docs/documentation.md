@@ -1,5 +1,7 @@
 # Dokumentation Heimnetz
 
+[Home](../README.md)
+
 ## Aufgaben Durchführen Teil 1
 
 + [x] Netze rot, grün, orange entsprechen eigenen Vorgaben

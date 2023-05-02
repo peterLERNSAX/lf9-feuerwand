@@ -1,5 +1,7 @@
 # Documentation for Django
 
+[Home](../README.md)
+
 ## Content
 - [Views](#views)
     - [IndexView](#indexview)

@@ -1,4 +1,7 @@
 # 3.2 Analyse
+
+[Home](../README.md)
+
 ## Aufgabe 1
 ### Begründen Sie die öffentliche Erreichbarkeit/Nichterreichbarkeit der Systeme
 <br></br>

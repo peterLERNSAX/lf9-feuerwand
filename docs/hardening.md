@@ -1,5 +1,7 @@
 # Soll-Ist-Vergleich 
 
+[Home](../README.md)
+
 | Soll | Ist |
 |------------------------------------------------------------------------------|-----------------------------------------------|
 |Doubtful-Joy fordert eine Segmentierung der Netzinfrastruktur mit einer sicheren Trennung von öffentlich erreichbaren Diensten und dem Intranet.<br> | Es erfolgte eine Trennung in DMZ und Intranet. Die DMZ enthält den online zur Verfügung gestellten Webserver. Im Intranet sind alle unternehmensinternen Server und Client-Geräte |
