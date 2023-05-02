@@ -3,13 +3,14 @@
 ## Content
 - [Views](#views)
 - [Models](#models)
+- [Forms](#forms)
 
 ### Views
 
 #### Index
 
 ```python
-  class IndexView(View):
+class IndexView(View):
     """
     Index
     """ 
@@ -18,7 +19,7 @@
         """
         gets
         """
-        return render(request,"ticketwand/index.html")
+        return render(request,"ticketwand/index.html")  
 ```
 
 ##### Methods
@@ -119,3 +120,27 @@ class Ticket(models.Model):
 ##### Tests
 
 - no
+
+### Forms
+
+#### CreateTicketForm
+
+```python
+class CreateTicketForm(forms.Form):
+    """Create Ticket form"""
+
+    name = forms.CharField(max_length=250,required=True)
+    text = forms.Field(required=True)
+    email = forms.EmailField(required=True)
+```
+
+#### Fields
+
+- `name` -> ticket headline
+- `text` -> ticket text
+- `email` -> email of the user who created the ticket
+
+##### Tests
+
+- no
+
