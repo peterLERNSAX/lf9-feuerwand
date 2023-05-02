@@ -43,7 +43,7 @@ class IndexView(View):
 
 - no
 
-[back](#documentationfordjango)
+[back](#content)
 
 ---
 
@@ -65,7 +65,7 @@ class LoginView(LoginView):
 
 - `login.html`
 
-[back](#documentationfordjango)
+[back](#content)
 
 ---
 
@@ -110,7 +110,7 @@ class CreateTicketView(View):
 
 - no
 
-[back](#documentationfordjango)
+[back](#content)
 
 ---
 ---
@@ -154,7 +154,7 @@ class Ticket(models.Model):
 
 - no
 
-[back](#documentationfordjango)
+[back](#content)
 
 ---
 ---
@@ -182,7 +182,7 @@ class CreateTicketForm(forms.Form):
 
 - no
 
-[back](#documentationfordjango)
+[back](#content)
 
 ---
 ---
