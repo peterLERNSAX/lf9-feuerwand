@@ -33,7 +33,7 @@ class IndexView(View):
 #### Methods
 
 - `get` 
-  -  - redners template
+  - redners template
 
 #### Templates
 
