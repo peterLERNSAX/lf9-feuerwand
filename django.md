@@ -2,6 +2,7 @@
 
 ## Content
 - [Views](#views)
+- [Models](#models)
 
 ### Views
 
@@ -23,6 +24,7 @@
 ##### Methods
 
 - `get` 
+  -  - redners template
 
 ##### Templates
 
@@ -74,6 +76,45 @@ class CreateTicketView(View):
 
 - `ticket_created.html`
 - `create_ticket.html`
+
+##### Tests
+
+- no
+
+### Models
+
+#### Ticket
+
+```python
+class Ticket(models.Model):
+    """Model for Ticket"""
+
+    status_choice = (
+    ("in Bearbeitung", "in Bearbeitung"),
+    ("nicht lösbar", "nicht lösbar"),
+    ("reserveiert", "reserviert"),
+)
+
+    name = models.CharField(max_length=250,null=False,default="")
+    text = models.TextField(null=False,default="")
+    since = models.DateTimeField(null=False)
+    creator_email = models.EmailField(null=False)
+    status = models.CharField(null=True,choices=status_choice,max_length=200)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    is_active = models.BooleanField(null=False,default=True)
+    labels = models.TextField(null=True)
+```
+
+##### Fields
+
+- `name` -> ticket headline
+- `text` -> ticket text
+- `since` -> creation date of the ticket
+- `creator_email` -> email of the user who created the ticket
+- `status` -> status of the ticket, see `status_choice`
+- `owner` -> FK to django user model
+- `is_active`-> bool if ticket is active
+- `labels` -> textfield to be filled with labels
 
 ##### Tests
 
